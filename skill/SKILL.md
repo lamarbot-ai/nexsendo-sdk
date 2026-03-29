@@ -1,6 +1,6 @@
 # TextBubbles SDK Agent Skill
 
-You are an expert on the `@textbubbles/sdk` TypeScript SDK for the TextBubbles messaging API. Help developers implement features using this SDK.
+You are an expert on the `@textbubbles/js` TypeScript SDK for the TextBubbles messaging API. Help developers implement features using this SDK.
 
 ## SDK Overview
 
@@ -9,7 +9,7 @@ The SDK provides a `TextBubblesClient` class with resource namespaces: `messages
 ## Initialization
 
 ```typescript
-import { TextBubblesClient } from "@textbubbles/sdk";
+import { TextBubblesClient } from "@textbubbles/js";
 
 const tb = new TextBubblesClient({
   apiKey: process.env.TEXTBUBBLES_API_KEY!,
@@ -100,12 +100,12 @@ const tb = new TextBubblesClient({
 
 ```typescript
 // Verification
-import { verifyWebhookSignature, parseWebhookEvent } from "@textbubbles/sdk/webhooks";
+import { verifyWebhookSignature, parseWebhookEvent } from "@textbubbles/js/webhooks";
 const isValid = await verifyWebhookSignature(rawBody, signature, secret);
 const event = parseWebhookEvent(rawBody);
 
 // Next.js handler
-import { createWebhookHandler } from "@textbubbles/sdk/nextjs";
+import { createWebhookHandler } from "@textbubbles/js/nextjs";
 const handler = createWebhookHandler({
   secret: process.env.TEXTBUBBLES_WEBHOOK_SECRET!,
   handlers: {
@@ -119,13 +119,13 @@ const handler = createWebhookHandler({
 ## Type Guards
 
 ```typescript
-import { isMessageEvent, isReactionEvent, isTypingEvent, isPaymentEvent, isFacetimeEvent } from "@textbubbles/sdk/webhooks";
+import { isMessageEvent, isReactionEvent, isTypingEvent, isPaymentEvent, isFacetimeEvent } from "@textbubbles/js/webhooks";
 ```
 
 ## Error Handling
 
 ```typescript
-import { TextBubblesError, RateLimitError, AuthenticationError, ValidationError, NotFoundError } from "@textbubbles/sdk";
+import { TextBubblesError, RateLimitError, AuthenticationError, ValidationError, NotFoundError } from "@textbubbles/js";
 // All errors extend TextBubblesError with: status, code, message, details
 // RateLimitError also has: retryAfter (number | null)
 ```

@@ -1,5 +1,5 @@
 {
-  "name": "@textbubbles/sdk",
+  "name": "@textbubbles/js",
   "version": "0.1.0",
   "description": "TypeScript SDK for the TextBubbles messaging API",
   "main": "./dist/cjs/index.js",

@@ -1,17 +1,17 @@
-# @textbubbles/sdk
+# @textbubbles/js
 
 TypeScript SDK for the TextBubbles messaging API. Supports iMessage, group chats, contacts, payments, webhooks, and more.
 
 ## Install
 
 ```bash
-npm install @textbubbles/sdk
+npm install @textbubbles/js
 ```
 
 ## Quick Start
 
 ```typescript
-import { TextBubblesClient } from "@textbubbles/sdk";
+import { TextBubblesClient } from "@textbubbles/js";
 
 const tb = new TextBubblesClient({
   apiKey: "your-api-key-here",
@@ -41,10 +41,10 @@ Add to your project's `AGENTS.md` or run:
 
 ```bash
 # Copy the skill to your project
-cp -r node_modules/@textbubbles/sdk/skill ./textbubbles-skill
+cp -r node_modules/@textbubbles/js/skill ./textbubbles-skill
 
 # Or reference it in AGENTS.md
-echo "Skill: node_modules/@textbubbles/sdk/skill/SKILL.md" >> AGENTS.md
+echo "Skill: node_modules/@textbubbles/js/skill/SKILL.md" >> AGENTS.md
 ```
 
 ### Cursor
@@ -52,7 +52,7 @@ echo "Skill: node_modules/@textbubbles/sdk/skill/SKILL.md" >> AGENTS.md
 Add to `.cursor/rules`:
 
 ```
-Read and follow the TextBubbles SDK skill at: node_modules/@textbubbles/sdk/skill/SKILL.md
+Read and follow the TextBubbles SDK skill at: node_modules/@textbubbles/js/skill/SKILL.md
 ```
 
 Or copy `skill/SKILL.md` content into your `.cursorrules` file.
@@ -259,7 +259,7 @@ await tb.webhooks.set({
 ### Handling Webhooks
 
 ```typescript
-import { verifyWebhookSignature, parseWebhookEvent, isMessageEvent } from "@textbubbles/sdk/webhooks";
+import { verifyWebhookSignature, parseWebhookEvent, isMessageEvent } from "@textbubbles/js/webhooks";
 
 // Verify signature
 const isValid = await verifyWebhookSignature(rawBody, signature, secret);
@@ -277,7 +277,7 @@ if (isMessageEvent(event)) {
 **App Router** (`app/api/webhooks/textbubbles/route.ts`):
 
 ```typescript
-import { createWebhookHandler } from "@textbubbles/sdk/nextjs";
+import { createWebhookHandler } from "@textbubbles/js/nextjs";
 
 const handler = createWebhookHandler({
   secret: process.env.TEXTBUBBLES_WEBHOOK_SECRET!,
@@ -301,7 +301,7 @@ export const POST = handler;
 **Pages Router** (`pages/api/webhooks/textbubbles.ts`):
 
 ```typescript
-import { createWebhookHandler } from "@textbubbles/sdk/nextjs";
+import { createWebhookHandler } from "@textbubbles/js/nextjs";
 
 export default createWebhookHandler({
   secret: process.env.TEXTBUBBLES_WEBHOOK_SECRET!,
@@ -344,7 +344,7 @@ import {
   RateLimitError,
   ValidationError,
   NotFoundError,
-} from "@textbubbles/sdk";
+} from "@textbubbles/js";
 
 try {
   await tb.messages.send({ to: "+1...", content: { text: "Hi" } });
@@ -368,7 +368,7 @@ try {
 All request params and response types are exported:
 
 ```typescript
-import type { Message, SendMessageParams, WebhookEvent } from "@textbubbles/sdk";
+import type { Message, SendMessageParams, WebhookEvent } from "@textbubbles/js";
 ```
 
 ## Requirements
